@@ -81,7 +81,7 @@ def index():
 def ask():
     question = request.form.get('question')
     response, docs = get_response_from_query(db, question)
-    answer = f"This is the response: '{response}'"
+    answer = f"{response}'"
     return jsonify({'answer': answer})
 
 if __name__ == '__main__':
