@@ -14,6 +14,8 @@ from langchain.prompts.chat import (
 
 app = Flask(__name__)
 
+
+
 #Get video data
 embeddings = OpenAIEmbeddings()
 def create_db_from_youtube_video_url(video_url):
@@ -25,8 +27,9 @@ def create_db_from_youtube_video_url(video_url):
 
     db = FAISS.from_documents(docs, embeddings)
     return db
-video_url = "https://www.youtube.com/watch?v=m04_yk-Y7Is"
+video_url = "https://www.youtube.com/watch?v=OTJXLylAeE0"
 db = create_db_from_youtube_video_url(video_url)
+
 
 #define query function
 def get_response_from_query(db, query, k=4):
@@ -42,7 +45,7 @@ def get_response_from_query(db, query, k=4):
 
     # Template to use for the system message prompt
     template = """
-        You are the hosts of Spittin Chiclets, a podcast about professional hockey, and your purpose is to answer questions about the NHL playoffs as the show's hosts might. Answer questions using the content, tone of voice, and dialect from the youtube video's transcript: {docs}
+        You are the hosts of Spittin Chiclets, a podcast about professional hockey, and your purpose is to act as the show's hosts while answering questions about the NHL and hockey. Answer questions using the content, tone of voice, and dialect from the youtube video's transcript: {docs}
         
         Only use information from the transcript to answer the question.
         
