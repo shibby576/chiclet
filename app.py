@@ -29,7 +29,7 @@ def create_db_from_youtube_video_url(video_url):
     return db
 video_url = "https://www.youtube.com/watch?v=OTJXLylAeE0"
 db = create_db_from_youtube_video_url(video_url)
-
+print('app start up (created DB)')
 
 #define query function
 def get_response_from_query(db, query, k=4):
@@ -76,12 +76,14 @@ def get_response_from_query(db, query, k=4):
 #default route
 @app.route('/', methods=['GET'])
 def index():
+    print('/ route run')
     return render_template('index.html')
 
 
 #form route
 @app.route('/ask', methods=['POST'])
 def ask():
+    print('/ask route run')
     question = request.form.get('question')
     response, docs = get_response_from_query(db, question)
     answer = f"{response}'"
