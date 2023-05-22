@@ -9,6 +9,7 @@
     <script src="https://code.jquery.com/jquery-3.7.0.min.js" integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    
     <style>
         body {
             padding-top: 20px;
@@ -17,6 +18,19 @@
     .custom-image {
         max-width: 300px;
         margin: 0 auto;
+    }
+    .loading-spinner {
+      border: 4px solid #f3f3f3;
+      border-top: 4px solid #3498db;
+      border-radius: 50%;
+      width: 40px;
+      height: 40px;
+      animation: spin 1s linear infinite;
+    }
+
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
     }
 
     </style>
@@ -45,8 +59,10 @@
                     </div>
                     <button type="submit" class="btn btn-primary"">Ask</button>
                 </form>
+                <div class="loading-spinner" id="loading-spinner" style="display: none;"></div>        
             </div>
         </div>
+        
         <div class="row">
             <div class="col-12 col-md-8 offset-md-2">
                 <div id="answer" class="alert alert-success d-none" role="alert"></div>
@@ -64,7 +80,7 @@
                 </ul>
             </div>
         </div>
-        <div class="row"><a class="col-12 col-md-8 offset-md-2" target="_blank" href="https://www.youtube.com/watch?v=m04_yk-Y7Is">Source content: Episode 443</a>
+        <div class="row"><a class="col-12 col-md-8 offset-md-2" target="_blank" href="https://www.youtube.com/watch?v=m04_yk-Y7Is">Source content: Episode 444</a>
             <p class="col-12 col-md-8 offset-md-2">This is an experimental site</p>
         </div>
 
@@ -74,6 +90,14 @@
     <script>
         $("#questionForm").submit(function (event) {
                 event.preventDefault();
+
+                // Show the loading spinner
+                document.getElementById('loading-spinner').style.display = 'block';
+
+                // Disable the 'Ask' button
+                const askButton = $("button[type='submit']");
+                askButton.prop("disabled", true);
+
                 let question = $("#question").val().trim();
 
                 if (!question) {
@@ -87,13 +111,25 @@
                         question: question
                     },
                     success: function (response) {
+                        // Hide the loading spinner and enable the ask button
+                        document.getElementById('loading-spinner').style.display = 'none';
+                        askButton.prop("disabled", false);
+
                         $("#answer").text(response.answer).removeClass("d-none");
+
                     },
                     error: function () {
+                        // Hide the loading spinner and enable the ask button
+                        document.getElementById('loading-spinner').style.display = 'none';
+                        askButton.prop("disabled", false);
+
                         $("#answer").text("An error occurred. Please try again.").removeClass("d-none");
+
                     }
                 });
+
             });
+        
     </script>
 </body>
 
