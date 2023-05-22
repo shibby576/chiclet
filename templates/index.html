@@ -34,7 +34,30 @@
     }
 
     </style>
+
+    <!-- Hotjar Tracking Code for https://playoffchat.herokuapp.com/ -->
+    <script>
+    (function(h,o,t,j,a,r){
+        h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+        h._hjSettings={hjid:3502514,hjsv:6};
+        a=o.getElementsByTagName('head')[0];
+        r=o.createElement('script');r.async=1;
+        r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+        a.appendChild(r);
+    })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
+    </script>
+
 </head>
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-SZGXWFH8HB"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-SZGXWFH8HB');
+</script>
 
 <body>
     <div class="container">
@@ -45,8 +68,6 @@
             </div>
             
             <iframe class="col-12 col-md-8 offset-md-2" width="560" height="315" src="https://www.youtube.com/embed/OTJXLylAeE0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-            
-            <!-- <img src="{{ url_for('static', filename='images/spit.jpeg') }}" class="img-fluid custom-image" alt="..."> -->
         
             
         </div>
@@ -59,7 +80,7 @@
                     </div>
                     <button type="submit" class="btn btn-primary"">Ask</button>
                 </form>
-                <div class="loading-spinner" id="loading-spinner" style="display: none;"></div>        
+                <div class="loading-spinner" id="loading-spinner" style="display: none;"></div>
             </div>
         </div>
         
