@@ -27,7 +27,7 @@ def create_db_from_youtube_video_url(video_url):
 
     db = FAISS.from_documents(docs, embeddings)
     return db
-video_url = "https://www.youtube.com/watch?v=OTJXLylAeE0"
+video_url = "https://www.youtube.com/watch?v=Y4bq02q71R8"
 db = create_db_from_youtube_video_url(video_url)
 print('app start up (created DB)')
 
