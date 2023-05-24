@@ -10,7 +10,8 @@ app = Flask(__name__)
 video_url = "https://www.youtube.com/watch?v=Y4bq02q71R8"
 db = create_db_from_youtube_video_url(video_url)
 
-#### On load, call function in summary (will need to add docs retun from data processing). jsonify it, and display instead of current bullets
+#### On load, call function in summary (will need to add docs retun from data processing). jsonify it, and display instead of current bullets. Also test the chunck size and overlap of current data processor
+
 
 #default route
 @app.route('/', methods=['GET'])
