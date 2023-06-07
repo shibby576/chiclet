@@ -1,4 +1,4 @@
-# Learning some LangChain basics by building a video Q&A system
+# Learning LangChain basics by building a video Q&A system
 
 My objective for this project was to learn my way around LangChain by building a fun full stack project. Since the NHL playoffs are going on and I really enjoy the commentary by the guys on the Spittin Chiclets podcast, but rarely get to listen to all three hours, I thought a site that allowed me to get information from the content without watching/listening to the entire thing would be useful.
 
