@@ -15,4 +15,6 @@ def create_db_from_youtube_video_url(video_url):
 
     db = FAISS.from_documents(docs, embeddings)
     print('DB created')
+    #Return statement if inclucing summary
+    #return db, docs
     return db

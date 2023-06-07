@@ -3,7 +3,7 @@ from langchain.prompts import PromptTemplate
 from langchain.llms import OpenAI
 
 
-#get video summary
+#get video summary. 
 def get_video_summary():
     map_prompt = """
     Write a concise summary of the following:
@@ -22,4 +22,5 @@ def get_video_summary():
     llm = OpenAI(temperature=0)
 
     summary_chain = load_summarize_chain(llm=llm, chain_type='map_reduce', map_prompt=map_prompt_template, combine_prompt=combine_prompt_template)
+    print('summary started')
     return summary_chain
