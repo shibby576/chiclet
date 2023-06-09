@@ -8,8 +8,8 @@ The core steps to accomplish this are to:
 <ol>
  <li>Get the podcast transcript from Youtube using Langchain's built in Youtube document loader <a href='https://github.com/shibby576/chiclet/blob/main/data_processing.py'>Video processing code</a> </li>
  <li>Split the text from the transcript into chunks using LangChain's recursive text splitter and create a collection of documents</li>
- <li>Save these documents into a vector DB, I used FAISS and did it in cpu to keep things simple.</li>
- <li>This vector DB is created each time the application is started, which is not ideal but good enough for my small use case</li>
+ <li>Save these documents into a vector index, I used FAISS and did it in cpu to keep things simple.</li>
+ <li>This index is created each time the application is started, which is not ideal but good enough for my small use case</li>
  <li>To query this content, I used LangChain's LLMChain with both system and human prompt templates. This allowed me to give the LLM context about the video and guard rails on how to respond <a href='https://github.com/shibby576/chiclet/blob/main/query.py'>Query code</a> </li>
  <li>On submit a few things happen. First a similarity search is run against the vector DB to find the most relevant chunks of content. Then the chain object is created, which consists of the LLM (GPT 3.5) and the prompt templates. Lastly the chain runs with the question the user asked and the document segments as the inputs</li>
  <li>The response is returned, formatted, and sent back to the front end <a href='https://github.com/shibby576/chiclet/blob/main/app.py'>Main app code </a>| <a href='https://github.com/shibby576/chiclet/blob/main/templates/index.html'>Front end</a></li>
