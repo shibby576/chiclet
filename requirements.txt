@@ -14,8 +14,8 @@ greenlet==2.0.2
 idna==3.4
 itsdangerous==2.1.2
 Jinja2==3.1.2
-langchain==0.0.226
-langchainplus-sdk-0.0.20
+langchain==0.0.209
+langchainplus-sdk-0.0.16
 MarkupSafe==2.1.2
 marshmallow==3.19.0
 marshmallow-enum==1.5.1
