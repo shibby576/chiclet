@@ -14,8 +14,8 @@ greenlet==2.0.2
 idna==3.4
 itsdangerous==2.1.2
 Jinja2==3.1.2
-langchain==0.0.209
-langchainplus-sdk==0.0.16
+langchain
+langchainplus-sdk
 MarkupSafe==2.1.2
 marshmallow==3.19.0
 marshmallow-enum==1.5.1
@@ -23,7 +23,7 @@ multidict==6.0.4
 mypy-extensions==1.0.0
 numexpr==2.8.4
 numpy==1.24.3
-openai==0.27.6
+openai
 openapi-schema-pydantic==1.2.4
 packaging==23.1
 pydantic==1.10.7
@@ -40,5 +40,5 @@ typing_extensions==4.5.0
 urllib3==2.0.2
 Werkzeug==2.3.4
 yarl==1.9.2
-youtube-transcript-api==0.6.0
-gunicorn==20.1.0
+youtube-transcript-api
+gunicorn==21.2.0
